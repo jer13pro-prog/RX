@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rx Training — Heartstring Set (Fixed)</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,400;0,600;1,500&family=Anton&family=Archivo+Narrow:wght@600;700&display=swap');
+:root{
+  --ink:#070F1E;--ink2:#0B1A33;--blue:#2E6BFF;--sky:#8FB1FF;--white:#F4F7FF;--dim:rgba(143,177,255,.55);
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{background:#111827;font-family:'Archivo',sans-serif;color:var(--white);padding:40px 20px;}
+h1.pagetitle{font-family:'Anton',sans-serif;font-size:28px;margin-bottom:6px;}
+p.pagesub{color:#9CA3AF;font-size:14px;margin-bottom:36px;max-width:720px;line-height:1.5;}
+.board{display:flex;flex-wrap:wrap;gap:48px;align-items:flex-start;}
+.frame-wrap{display:flex;flex-direction:column;gap:10px;}
+.frame-label{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#9CA3AF;font-weight:600;}
+.scale{transform:scale(.34);transform-origin:top left;}
+.holder-45{width:calc(1080px*.34);height:calc(1350px*.34);}
+.ad{position:relative;width:1080px;height:1350px;overflow:hidden;color:var(--white);background:
+  radial-gradient(1100px 800px at 80% 12%, #12305F 0%, transparent 55%),
+  linear-gradient(165deg,#0B1A33 0%,#070F1E 60%,#04080E 100%);}
+.grain{position:absolute;inset:0;pointer-events:none;background-image:radial-gradient(rgba(143,177,255,.05) 1px,transparent 1px);background-size:26px 26px;opacity:.5;}
+.eyebrow{font-family:'Archivo Narrow',sans-serif;font-weight:700;letter-spacing:.32em;font-size:26px;color:var(--sky);text-transform:uppercase;}
+.display{font-family:'Anton',sans-serif;text-transform:uppercase;line-height:1.02;letter-spacing:.5px;}
+.display .b{color:var(--blue);}
+.serifline{font-family:'Archivo',sans-serif;font-style:italic;font-weight:500;font-size:40px;line-height:1.45;color:var(--sky);}
+.rule{width:120px;height:6px;background:var(--blue);margin:34px 0;}
+.cta{display:inline-flex;align-items:center;gap:20px;background:linear-gradient(120deg,#2E6BFF,#1E4FD6);border:2px solid rgba(143,177,255,.65);border-radius:20px;padding:28px 42px;font-family:'Anton',sans-serif;font-size:42px;letter-spacing:.04em;text-transform:uppercase;box-shadow:0 0 60px rgba(46,107,255,.35);white-space:nowrap;}
+.photo{position:absolute;border:3px dashed rgba(143,177,255,.45);border-radius:8px;display:flex;align-items:center;justify-content:center;text-align:center;background:rgba(11,26,51,.35);overflow:hidden;}
+.photo span{font-family:'Archivo Narrow',sans-serif;font-size:24px;letter-spacing:.1em;text-transform:uppercase;color:var(--dim);line-height:1.6;padding:0 30px;}
+.footer-brand{position:absolute;bottom:48px;left:72px;display:flex;align-items:center;gap:16px;font-family:'Anton',sans-serif;font-size:34px;letter-spacing:.06em;z-index:5;}
+.footer-brand .rx{color:var(--blue);}
+.content{position:absolute;left:72px;top:96px;right:72px;z-index:3;}
+.cta-zone{position:absolute;left:72px;bottom:140px;z-index:4;}
+
+/* H1: the old you — photo occupies right column, clear of CTA and footer */
+.h1f .display{font-size:112px;margin-top:32px;max-width:640px;}
+.h1f .serifline{max-width:560px;}
+.h1f .photo{top:560px;right:60px;width:400px;height:600px;}
+
+/* H2: kids — photo band in middle, caption + CTA stacked below with clear space */
+.h2f .display{font-size:116px;margin-top:32px;}
+.h2f .photo{left:72px;right:72px;top:600px;height:330px;}
+.h2f .caption{position:absolute;left:72px;right:72px;top:970px;z-index:4;}
+.h2f .cta-zone{bottom:130px;}
+
+/* H3: seasons — tightened vertical rhythm so both serif lines and CTA fit */
+.h3f .display{font-size:100px;margin-top:30px;}
+.h3f .count{margin-top:44px;display:flex;gap:16px;flex-wrap:wrap;max-width:920px;}
+.h3f .tick{width:48px;height:48px;border-radius:8px;border:2px solid rgba(143,177,255,.5);}
+.h3f .tick.on{background:var(--blue);border-color:var(--blue);}
+.h3f .ticklab{font-family:'Archivo Narrow',sans-serif;font-weight:600;font-size:27px;letter-spacing:.08em;text-transform:uppercase;color:var(--dim);margin-top:18px;}
+.h3f .rule{margin:28px 0;}
+.h3f .serifline{font-size:38px;}
+.h3f .cta-zone{bottom:130px;}
+
+/* H4: not too old — narrower photo so UNTRAINED never collides */
+.h4f .display{font-size:110px;margin-top:32px;}
+.h4f .serifline{max-width:520px;}
+.h4f .photo{top:620px;right:60px;width:360px;height:560px;}
+</style>
+</head>
+<body>
+
+<h1 class="pagetitle">Rx Training — Heartstring Set (Fixed)</h1>
+<p class="pagesub">Same four frames, corrected geometry: photo zones no longer collide with headlines, captions, CTAs, or frame edges. Everything sits inside safe margins.</p>
+
+<div class="board">
+
+<!-- H1 -->
+<div class="frame-wrap">
+  <div class="frame-label">H1 — The Version of You That Was Fast</div>
+  <div class="holder-45"><div class="scale">
+    <div class="ad h1f">
+      <div class="grain"></div>
+      <div class="photo"><span>GRAINY OLD RACE PHOTO<br>HS / COLLEGE ERA<br>BLUE DUOTONE</span></div>
+      <div class="content">
+        <div class="eyebrow">Rx Training</div>
+        <div class="display">SOMEWHERE<br>THERE'S A<br>VERSION OF YOU<br>THAT <span class="b">RAN 17:40.</span></div>
+        <div class="rule"></div>
+        <div class="serifline">He didn't disappear.<br>He just stopped<br>getting coached.</div>
+      </div>
+      <div class="cta-zone"><div class="cta">START TRAINING AGAIN →</div></div>
+      <div class="footer-brand"><span class="rx">RX</span> COACHING</div>
+    </div>
+  </div></div>
+</div>
+
+<!-- H2 -->
+<div class="frame-wrap">
+  <div class="frame-label">H2 — Your Kids Have Never Seen You Race</div>
+  <div class="holder-45"><div class="scale">
+    <div class="ad h2f">
+      <div class="grain"></div>
+      <div class="content">
+        <div class="eyebrow">Rx Training</div>
+        <div class="display">YOUR KIDS HAVE<br>NEVER SEEN<br>YOU <span class="b">RACE.</span></div>
+      </div>
+      <div class="photo"><span>PHOTO: FINISH LINE, FAMILY AT THE BARRIER,<br>OR EMPTY STARTING LINE AT DAWN</span></div>
+      <div class="caption">
+        <div class="serifline">They've seen you work. They've seen you tired.<br>Let them see you fight for something that's yours.</div>
+      </div>
+      <div class="cta-zone"><div class="cta">PICK YOUR RACE →</div></div>
+      <div class="footer-brand"><span class="rx">RX</span> COACHING</div>
+    </div>
+  </div></div>
+</div>
+
+<!-- H3 -->
+<div class="frame-wrap">
+  <div class="frame-label">H3 — Seasons Left</div>
+  <div class="holder-45"><div class="scale">
+    <div class="ad h3f">
+      <div class="grain"></div>
+      <div class="content">
+        <div class="eyebrow">The honest math</div>
+        <div class="display">YOU DON'T HAVE<br>UNLIMITED<br>TRAINING CYCLES<br><span class="b">LEFT.</span></div>
+        <div class="count">
+          <div class="tick on"></div><div class="tick on"></div><div class="tick on"></div><div class="tick on"></div><div class="tick on"></div><div class="tick on"></div><div class="tick on"></div><div class="tick on"></div><div class="tick on"></div><div class="tick on"></div><div class="tick on"></div><div class="tick on"></div><div class="tick"></div><div class="tick"></div><div class="tick"></div><div class="tick"></div><div class="tick"></div><div class="tick"></div><div class="tick"></div><div class="tick"></div>
+        </div>
+        <div class="ticklab">A build takes 16 weeks. Do the math on the ones you're wasting.</div>
+        <div class="rule"></div>
+        <div class="serifline">The next block can be random. Or it can count.</div>
+      </div>
+      <div class="cta-zone"><div class="cta">MAKE THIS BLOCK COUNT →</div></div>
+      <div class="footer-brand"><span class="rx">RX</span> COACHING</div>
+    </div>
+  </div></div>
+</div>
+
+<!-- H4 -->
+<div class="frame-wrap">
+  <div class="frame-label">H4 — Not Too Old, Untrained</div>
+  <div class="holder-45"><div class="scale">
+    <div class="ad h4f">
+      <div class="grain"></div>
+      <div class="photo"><span>PHOTO: 40-SOMETHING<br>RUNNER MID-RACE,<br>STRAINING, REAL</span></div>
+      <div class="content">
+        <div class="eyebrow">Rx Training</div>
+        <div class="display">YOU'RE NOT<br>TOO OLD.<br>YOU'RE<br><span class="b">UNTRAINED.</span></div>
+        <div class="rule"></div>
+        <div class="serifline">There's a difference.<br>One is permanent.<br>One takes 16 weeks<br>and a real plan.</div>
+      </div>
+      <div class="cta-zone"><div class="cta">GET THE PLAN →</div></div>
+      <div class="footer-brand"><span class="rx">RX</span> COACHING</div>
+    </div>
+  </div></div>
+</div>
+
+</div>
+</body>
+</html>
