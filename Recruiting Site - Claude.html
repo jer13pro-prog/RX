@@ -115,6 +115,10 @@
   footer{background:var(--ink);color:#9aa3ae;font-family:var(--mono);font-size:12px;padding:28px 0;letter-spacing:.06em}
   footer .wide{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
 
+  .review-strip{border-top:1px solid var(--lane);padding:64px 0;text-align:center}
+  .review-strip p{max-width:520px;margin:0 auto 28px}
+  .review-strip[hidden]{display:none}
+
   .reveal{opacity:0;transform:translateY(14px);transition:opacity .6s ease,transform .6s ease}
   .reveal.in{opacity:1;transform:none}
 </style>
@@ -282,6 +286,21 @@
     <h2>Let's look at where your athlete fits</h2>
     <p>Book a free call. We'll go through your athlete's times, talk honestly about realistic targets, and map out what the next 90 days should look like — training, racing, and recruiting together. No pressure, no database signup.</p>
     <a class="btn btn-solid" href="#" onclick="alert('Connect this button to your Calendly link.');return false;">Book a free strategy call</a>
+  </div>
+</section>
+
+<!--
+  GOOGLE REVIEW STRIP
+  Swap the two href="#" values below for your Google review link once the
+  Business Profile is verified (dashboard → "Ask for reviews" → g.page/r/…/review).
+  Until then this stays hidden — remove the hidden attribute to publish it.
+-->
+<section class="review-strip" id="reviews" hidden>
+  <div class="wrap">
+    <span class="eyebrow">Worked with me?</span>
+    <h2>Leave a review</h2>
+    <p>If I helped your athlete get faster or get recruited, a short review on Google helps the next family find me — and helps them judge whether I'm the right fit.</p>
+    <a class="btn btn-solid" href="#" rel="noopener" target="_blank">Leave a Google review</a>
   </div>
 </section>
 
